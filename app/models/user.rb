@@ -13,5 +13,7 @@ class User
   
   property :id,     Serial
   property :login,  String
-  
+  property :email,  String
+
+  has n, :vehicles, :child_key => [:owner_id]
 end
