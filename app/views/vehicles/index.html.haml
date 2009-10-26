@@ -1,0 +1,14 @@
+%h1 My Vehicles
+
+- if @vehicles.size
+  .vehicles
+    - @vehicles.each do |vehicle|
+      = partial :show, :vehicle => vehicle
+- else
+  .p
+    You don't have any vehicles listed. Why don't you
+    =link_to> "add one", new_vehicle_path
+    ?
+
+.add_vehicle
+  = link_to "Add a Vehicle", url(:new_vehicle)

@@ -1,0 +1,27 @@
+.header, .content {
+  margin-left: 2cm;
+  margin-right: 2cm;
+  margin-bottom: 5px;
+  border: 2px solid red;
+  font-family: helvetica, arial, sans-serif;
+}
+
+.header {
+  color: white;
+  background-color: #0066CC;
+  padding: 20px;
+}
+
+.header>h1 {
+  font-size: 48pt;
+  display: inline;
+}
+
+.header>small {
+  font-size: 10pt;
+}
+
+h1 {
+  font-size: 18pt;
+  margin-bottom: 1em;
+}

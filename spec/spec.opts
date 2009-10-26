@@ -1,0 +1,2 @@
+spec/models/vehicle_spec.rb
+spec/requests/vehicles_spec.rb

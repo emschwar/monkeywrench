@@ -1,0 +1,18 @@
+!!! XML
+!!!
+%html
+  %head
+    %title
+      MonkeyWrench
+    %meta{"http-equiv" => "content-type",
+          "content" => "text/html; charset=utf-8"}
+    = css_include_tag :reset, :application
+    = auto_link # this is awesome.  See docs.
+  %body
+    .header
+      %h1 MonkeyWrench
+      %small Keeping Your Cars Running Since about Four Minutes Ago
+
+    .content
+      = message[:notice]
+      = catch_content :for_layout
