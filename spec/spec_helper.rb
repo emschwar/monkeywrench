@@ -26,3 +26,14 @@ Spec::Runner.configure do |config|
   end
 
 end
+
+def skif
+  @skif ||= User.gen(:login => "skif",
+    :password => "wtfzomg", :password_confirmation => "wtfzomg")
+end
+
+def login_as(user)
+  response = request url(:perform_login), :method => "PUT",
+    :params => { :login => user.login, :password => user.password }
+  response.should redirect
+end

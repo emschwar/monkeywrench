@@ -1,13 +1,14 @@
 %h1 My Vehicles
 
 - if @vehicles.size
-  .vehicles
+  %ul.vehicles
     - @vehicles.each do |vehicle|
-      = partial :show, :vehicle => vehicle
+      %li.vehicle
+        = partial :vehicle, :with => vehicle
 - else
   .p
     You don't have any vehicles listed. Why don't you
-    =link_to> "add one", new_vehicle_path
+    = link_to "add one", new_vehicle_path
     ?
 
 .add_vehicle

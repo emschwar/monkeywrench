@@ -1,3 +1,4 @@
+require 'ruby-debug'
 class Vehicles < Application
   # provides :xml, :yaml, :js
 
@@ -26,7 +27,7 @@ class Vehicles < Application
   end
 
   def create(vehicle)
-    @vehicle = Vehicle.new(vehicle)
+    @vehicle = Vehicle.new(vehicle.merge(:owner => session.user))
     if @vehicle.save
       redirect resource(@vehicle), :message => {:notice => "Vehicle was successfully created"}
     else
