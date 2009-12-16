@@ -2,8 +2,14 @@
   margin-left: 2cm;
   margin-right: 2cm;
   margin-bottom: 5px;
-  border: 2px solid red;
+  border: 2px solid black;
   font-family: helvetica, arial, sans-serif;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+.content {
+  padding: 20px;
 }
 
 .header {
@@ -24,4 +30,8 @@
 h1 {
   font-size: 18pt;
   margin-bottom: 1em;
+}
+
+.template {
+  display: none;
 }

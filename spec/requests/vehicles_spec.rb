@@ -23,9 +23,12 @@ describe "resource(:vehicles)" do
     end
 
     it "contains a list of vehicles" do
-      @response.should have_xpath("//ul")
+      @response.should have_selector("ul")
     end
 
+    it "contains a link to create a new vehicle" do
+      @response.should have_selector("a", :content => "Add a Vehicle")
+    end
   end
 
   describe "GET", :given => "a vehicle exists" do
@@ -88,6 +91,12 @@ describe "resource(@vehicle, :edit)", :given => "a vehicle exists" do
   it "responds successfully" do
     @response.should be_successful
   end
+
+  it "contains a list of maintenance items" do
+    @response.should have_selector("ol#maintenance_items")
+  end
+
+  it "contains a link to add a new maintenance item"
 end
 
 describe "resource(@vehicle)", :given => "a vehicle exists" do

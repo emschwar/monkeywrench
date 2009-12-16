@@ -16,20 +16,24 @@ class Vehicles < Application
   def new
     only_provides :html
     @vehicle = Vehicle.new
-    display @vehicle
+    3.times { @vehicle.maintenance_events.build } 
+    render
   end
 
   def edit(id)
     only_provides :html
     @vehicle = Vehicle.get(id)
     raise NotFound unless @vehicle
+    3.times { @vehicle.maintenance_events.build } unless
+      @vehicle.maintenance_events.any?
     display @vehicle
   end
 
   def create(vehicle)
+    debugger
     @vehicle = Vehicle.new(vehicle.merge(:owner => session.user))
     if @vehicle.save
-      redirect resource(@vehicle), :message => {:notice => "Vehicle was successfully created"}
+      redirect resource(:vehicles), :message => {:notice => "Vehicle was successfully created"}
     else
       message[:error] = "Vehicle failed to be created"
       render :new
@@ -40,7 +44,7 @@ class Vehicles < Application
     @vehicle = Vehicle.get(id)
     raise NotFound unless @vehicle
     if @vehicle.update_attributes(vehicle)
-       redirect resource(@vehicle)
+      redirect resource(:vehicles)
     else
       display @vehicle, :edit
     end

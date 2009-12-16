@@ -1,4 +1,5 @@
 .h1 New Vehicle
 
-= partial :form
-= submit "Create"
+=form_for(@vehicle, :action => resource(:vehicles)) do
+  =partial :form
+  =submit "Create"

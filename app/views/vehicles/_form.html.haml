@@ -1,13 +1,17 @@
-= form_for(@vehicle) do
-  = text_field :model_year, :label => "Model Year"
-  <br/>
-  = text_area  :model_info, :label => "Model Info"
-  <br/>
-  = text_field :bought, :label => "Bought on:"
-  <br/>
-  = text_field :color, :label => "Color:"
-  <br/>
-  = text_area  :comments, :label => "Comments:"
-  <br/>
-  = text_field :vin, :label => "VIN:"
-
+= text_field :model_year, :label => "Model Year"
+<br/>
+= text_area  :model_info, :label => "Model Info"
+<br/>
+= text_field :bought, :label => "Bought on:"
+<br/>
+= text_field :color, :label => "Color:"
+<br/>
+= text_area  :comments, :label => "Comments:"
+<br/>
+= text_field :vin, :label => "VIN:"
+%h2 Maintenance events
+%ol#maintenance_events
+  = partial "maintenance_event", :with => @vehicle.maintenance_events
+= link_to "Add a new event", '', :id => "add-event"
+.event.template
+  = partial "maintenance_event", :with => MaintenanceEvent.new

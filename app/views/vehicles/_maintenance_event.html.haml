@@ -1,0 +1,8 @@
+%li
+  .event
+    = fields_for maintenance_event do
+      = text_field :description
+      = text_field :performed_on, :label => "Completed on:"
+      = text_field :interval, :label => "Perform every:"
+      = text_field :next_ocurrence, :label => "Due on:"
+      = link_to '[x]', '', :class => 'delete-event'
